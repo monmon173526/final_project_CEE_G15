@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script> -->
 </head>
 <body>
-    
+
+    <div id="board">
+        <img src="assets/3x3.png" id="board-image">
+        <div class="grid-container">
+            <div class="grid-item" onclick="handleClick(0)"></div>
+            <div class="grid-item" onclick="handleClick(1)"></div>
+            <div class="grid-item" onclick="handleClick(2)"></div>
+            <div class="grid-item" onclick="handleClick(3)"></div>
+            <div class="grid-item" onclick="handleClick(4)"></div>
+            <div class="grid-item" onclick="handleClick(5)"></div>
+            <div class="grid-item" onclick="handleClick(6)"></div>
+            <div class="grid-item" onclick="handleClick(7)"></div>
+            <div class="grid-item" onclick="handleClick(8)"></div>
+        </div>
+    </div>
+
+    <div class="Player">
+        <img src="assets/X.png" id="x" onclick="selectSymbol('X')">
+        <img src="assets/O.png" id="o" onclick="selectSymbol('O')">
+    </div>
+
+    <!-- <label for="textBox">Enter Text:</label>
+    <input type="text" id="textBox"> -->
+
+    <div class="player-container">
+        <input type="text" id="player1" name="player1" placeholder="Enter name for Player 1">
+        <input type="text" id="player2" name="player2" placeholder="Enter name for Player 2">
+    </div>
+
+    <!-- <script> 
+        function handleClick(index) {
+            console.log(`Clicked on cell ${index}`);
+            
+            const clickedCell = document.querySelector(`.grid-item:nth-child(${index + 1})`);
+            clickedCell.style.backgroundImage = `url('assets/X.png')`;
+            clickedCell.style.backgroundSize = 'cover';
+            // clickedCell.style.backgroundColor = '#e0e0e0';
+            console.log('Applied styles:', clickedCell.style.cssText);
+        }
+    </script> -->
+    <script type="module" src="scripts/gamelogic.js"></script>
 </body>
 </html>

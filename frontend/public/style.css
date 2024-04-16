@@ -135,3 +135,79 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #ffffff;
 }
+
+
+#board {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%; /* Adjust the width as needed */
+  max-width: 600px; /* Maximum width of the board */
+}
+
+#board img {
+  width: 105%; /* Enlarge the image to fit the container */
+  height: 30%;
+  max-width: 110%; /* Ensure the image doesn't exceed its original size */
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+.grid-container {
+  position: absolute;
+  top: 60%; /* Center vertically */
+  left: 88%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the grid exactly */
+  width: 95%;
+  height: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+
+.grid-item {
+  width: 85%; 
+  height: 70%; 
+  background-color: transparent; /* Make the div background transparent */
+  cursor: pointer;
+}
+
+.grid-item:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
+}
+
+.Player {
+  position: absolute; /* Set to absolute positioning */
+  top: 0; /* Position at the top */
+  right: 0; /* Position at the right */
+  display: flex;
+  flex-direction: column; /* Stack the images vertically */
+  align-items: flex-end; /* Align items to the right */
+  width: auto; /* Auto width */
+  padding-right: 20px; /* Add padding to the right */
+  box-sizing: border-box; /* Include padding in total width */
+  margin-top: 100px;
+}
+
+.Player img {
+  width: 100px; 
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 10px; /* Add spacing between images */
+  margin-right: 450px;
+  
+}
+
+.player-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: auto;
+  padding-right: 20px;
+  box-sizing: border-box;
+  margin-top: 100px;
+}
