@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio id="myAudio" controls>
+      <source src="assets/BGM.mp3" type="audio/mpeg">
+    </audio>
+    <section>
+      <header>
+        
+            <!-- <img class = "img-middle" src="assets/logo.png" style="max-width:60%;"> -->
+            <img class = "image-container" src="assets/leaderboardTitle.png" style="max-width:100%;">
+      </header>
+    </section>
+    <div class="leaderboard left scrool">
+      <h2>2 PLAYER</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Move</th>
+        </tr>
+        <tr>
+          <td>Player 1</td>
+          <td>Move 1</td>
+        </tr>
+        <tbody id="player2-table-body"></tbody>
+      </table>
+    </div>
+
+    <div class="leaderboard middle">
+      <h2>3 PLAYER</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Move</th>
+        </tr>
+        <tr>
+          <td>Player 3</td>
+          <td>Move 3</td>
+        </tr>
+        <tr>
+          <td>Player 4</td>
+          <td>Move 4</td>
+        </tr>
+        <tr>
+          <td>Player 5</td>
+          <td>Move 5</td>
+        </tr>
+        <tbody id="player3-table-body"></tbody>
+      </table>
+    </div>
+
+    <div class="leaderboard right">
+      <h2>4 PLAYER</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Move</th>
+        </tr>
+        <tr>
+          <td>Player 6</td>
+          <td>Move 6</td>
+        </tr>
+        <tr>
+          <td>Player 7</td>
+          <td>Move 7</td>
+        </tr>
+        <tr>
+          <td>Player 8</td>
+          <td>Move 8</td>
+        </tr>
+        <tbody id="player4-table-body"></tbody>
+      </table>
+    </div>  
+    <sec>
+        <img class="image-button img-middle" src="assets/back-button.png" id="back-button" style="max-width:25%;">
+    </sec>
+    </div>
+    <script type="module" src="scripts/leaderboard.js"></script> 
+    <script>
+      const audio = document.getElementById("myAudio");
+      audio.loop = true;
+      audio.volume = 0.05;
+      audio.play();
+    </script>
+  </body>
+</html>
