@@ -154,30 +154,6 @@ body {
   margin-left: 200px;
 }
 
-.grid-container {
-  position: absolute;
-  top: 60%; /* Center vertically */
-  left: 88%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center the grid exactly */
-  width: 95%;
-  height: 90%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-
-
-.grid-item {
-  width: 85%; 
-  height: 70%; 
-  background-color: transparent; /* Make the div background transparent */
-  cursor: pointer;
-}
-
-.grid-item:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
-}
-
 .Player {
   position: absolute; /* Set to absolute positioning */
   top: 0; /* Position at the top */
@@ -199,24 +175,11 @@ body {
   
 }
 
-.player-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: auto;
-  padding-right: 20px;
-  box-sizing: border-box;
-  margin-top: 100px;
-}
-
 #game-container {
   position: relative;
-  width: 700px; /* Set the width */
-  height: 600px; /* Set the height */
-  margin-top: 100px; /* Center the container */
+  width: 700px; 
+  height: 600px; 
+  margin-top: 100px; 
   margin-left: 250px;
 }
 
@@ -232,13 +195,25 @@ body {
 
 #turnCountX {
   bottom: 20px;
-  margin-bottom: 30px;  /* Increase this value to increase the gap */
+  margin-bottom: 30px;  
+}
+
+@media (max-width: 700px) {
+  #turn-count {
+      font-size: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  #turn-count {
+      font-size: 30px;
+  }
 }
 
 #win-message {
   position: absolute;
   bottom: 200px; /* Adjust vertical position as needed */
-  right: 200px; /* Adjust horizontal position to position it on the right side */
+  right: 250px; /* Adjust horizontal position to position it on the right side */
   /*background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   color: white;
   padding: 10px;
@@ -248,6 +223,7 @@ body {
 }
 
 #winner-input-container {
-  text-align: right;
-  margin-top: 10px;
+  position: absolute;
+  bottom: 150px;
+  right: 250px;
 }

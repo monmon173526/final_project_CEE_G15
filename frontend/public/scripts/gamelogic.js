@@ -78,31 +78,31 @@ function checkWinner(scene) {
         const [a, b, c] = pattern;
         if (gameState.board[a] && gameState.board[a] === gameState.board[b] && gameState.board[a] === gameState.board[c]) {
             gameState.gameOver = true;
-            
+
             const winningMessage = `${gameState.currentPlayer.toUpperCase()} wins!`;
             const winMessageDiv = document.getElementById('win-message');
             winMessageDiv.textContent = winningMessage;
             winMessageDiv.style.display = 'block'; // Show the win message
             
             // Show the input field and submit button only when a player wins
-        const winnerInputContainer = document.getElementById('winner-input-container');
-        winnerInputContainer.style.display = 'block';
+            const winnerInputContainer = document.getElementById('winner-input-container');
+            winnerInputContainer.style.display = 'block';
 
-        const winnerNameInput = document.getElementById('winnerNameInput');
-        const submitWinnerNameBtn = document.getElementById('submitWinnerNameBtn');
+            const winnerNameInput = document.getElementById('winnerNameInput');
+            const submitWinnerNameBtn = document.getElementById('submitWinnerNameBtn');
 
         // Event listener for the submit button
-        submitWinnerNameBtn.addEventListener('click', () => {
-        const winnerName = winnerNameInput.value.trim(); // Get the entered winner's name
-        if (winnerName !== '') {
-            // Process the winner's name (you can send it to a server, store in localStorage, etc.)
-            alert(`Thank you, ${winnerName}, for playing!`);
-            // You can hide the input field and button if needed
-            winnerInputContainer.style.display = 'none';
-        } else {
-            // If the input is empty, display an error message
-            alert('Please enter the winner\'s name.');
-        }
+            submitWinnerNameBtn.addEventListener('click', () => {
+            const winnerName = winnerNameInput.value.trim(); // Get the entered winner's name
+            if (winnerName !== '') {
+                // Process the winner's name (you can send it to a server, store in localStorage, etc.)
+                alert(`Thank you, ${winnerName}, for playing!`);
+                // You can hide the input field and button if needed
+                winnerInputContainer.style.display = 'none';
+            } else {
+                // If the input is empty, display an error message
+                alert('Please enter the winner\'s name.');
+            }
         });
             break;
         }
@@ -149,12 +149,12 @@ function removeImage(index, removepic) {
         // Set texture to greyed-out version
         imageToRemove.setTexture(removepic);
         imageToRemove.setAlpha(0.5); // Set transparency to make it greyed-out
-        console.log(imageToRemove);
+
+        // Remove the image from the placedImages array immediately
+        gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
 
         setTimeout(() => {
             imageToRemove.destroy();
-            gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
-            gameState.board[indexToRemove] = '';
         }, 1000); 
     }
 }
