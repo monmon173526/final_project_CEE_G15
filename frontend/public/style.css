@@ -192,10 +192,10 @@ body {
 }
 
 .Player img {
-  width: 100px; 
+  width: 150px; 
   height: auto; /* Maintain aspect ratio */
   margin-top: 10px; /* Add spacing between images */
-  margin-right: 200px;
+  margin-right: 340px;
   
 }
 
@@ -214,10 +214,35 @@ body {
 
 #game-container {
   position: relative;
-  width: 800px; /* Set the width */
+  width: 700px; /* Set the width */
   height: 600px; /* Set the height */
   margin-top: 100px; /* Center the container */
   margin-left: 250px;
- 
-  border: 1px solid #000; /* Optional: Add a border */
+}
+
+#turn-count {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 75px;
+  margin-top: 40px;
+  margin-right: 200px;
+}
+
+#turnCountX {
+  bottom: 20px;
+  margin-bottom: 30px;  /* Increase this value to increase the gap */
+}
+
+#win-message {
+  position: absolute;
+  bottom: 200px; /* Adjust vertical position as needed */
+  right: 200px; /* Adjust horizontal position to position it on the right side */
+  /*background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  padding: 10px;
+  font-size: 60px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
 }

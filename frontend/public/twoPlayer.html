@@ -8,14 +8,23 @@
     
 </head>
 <body>
-    <div id="game-container">
+    <div id="game-container"></div>
 
+    <div id="game-container">
+        <!-- Phaser game canvas will be appended here -->
+    </div>
+    <div id="turn-count">
+        <p><span id="turnCountX">0</span></p>
+        <p><span id="turnCountO">0</span></p>
     </div>
 
     <div class="Player">
         <img src="assets/X.png" id="x" onclick="selectSymbol('X')">
         <img src="assets/O.png" id="o" onclick="selectSymbol('O')">
     </div>
+
+    <div id="game-container"></div>
+    <div id="win-message" style="display: none;"></div>
 
     <!-- <label for="textBox">Enter Text:</label>
     <input type="text" id="textBox"> -->

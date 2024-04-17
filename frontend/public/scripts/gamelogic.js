@@ -26,6 +26,8 @@ function preload() {
     this.load.image('board', 'assets/3x3.png');
     this.load.image('x', 'assets/X.png');
     this.load.image('o', 'assets/O.png');
+    this.load.image('greyX', 'assets/X2.png');
+    this.load.image('greyO', 'assets/O2.png');
 }
 
 function create() {
@@ -76,7 +78,11 @@ function checkWinner(scene) {
         const [a, b, c] = pattern;
         if (gameState.board[a] && gameState.board[a] === gameState.board[b] && gameState.board[a] === gameState.board[c]) {
             gameState.gameOver = true;
-            scene.add.text(300, 550, `Player ${gameState.currentPlayer} wins!`, { fontSize: '32px', fill: '#fff' }).setOrigin(0.5);
+            const winningMessage = `${gameState.currentPlayer.toUpperCase()} wins!`;
+            const winMessageDiv = document.getElementById('win-message');
+            winMessageDiv.textContent = winningMessage;
+            winMessageDiv.style.display = 'block'; // Show the win message
+    
             break;
         }
     }
@@ -88,17 +94,21 @@ function updateTurnCount() {
         if (gameState.turnCountX > 3) {
             const oldestElem = gameState.xPos.shift(); 
             gameState.board[oldestElem] = '';
-            removeImage(oldestElem)
+            removeImage(oldestElem, "greyX")
         }
     } else {
         gameState.turnCountO++;
         if (gameState.turnCountO > 3) {
                 const oldestElem = gameState.oPos.shift();
                 gameState.board[oldestElem] = '';
-                removeImage(oldestElem)
+                removeImage(oldestElem, "greyO")
             }
     }
+    
+    document.getElementById('turnCountX').textContent = gameState.turnCountX;
+    document.getElementById('turnCountO').textContent = gameState.turnCountO;
 }
+
 
 function placeImage(scene, x, y, key) {
     const image = scene.add.image(x, y, key).setScale(0.2);
@@ -106,7 +116,7 @@ function placeImage(scene, x, y, key) {
 }
 
 
-function removeImage(index) {
+function removeImage(index, remove) {
     let indexToRemove = -1;
     if (gameState.currentPlayer === 'x') {
         indexToRemove = index;
@@ -115,7 +125,15 @@ function removeImage(index) {
     }
     if (indexToRemove !== -1) {
         let imageToRemove = gameState.placedImages.find(image => image.x === (indexToRemove % 3) * 200 + 100 && image.y === Math.floor(indexToRemove / 3) * 200 + 100);
-        imageToRemove.destroy();
-        gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
+
+        const greyImage = imageToRemove.setTexture(remove);
+        greyImage.setAlpha(0.5); 
+
+        setTimeout(() => {
+            imageToRemove.destroy();
+            gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
+        }, 1000); 
+        // imageToRemove.destroy();
+        // gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
     }
 }
