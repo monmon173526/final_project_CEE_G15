@@ -30,12 +30,15 @@ function preload() {
     this.load.image('greyO', 'assets/O2.png');
 }
 
+
 function create() {
     const boardImage = this.add.image(300, 300, 'board');
     boardImage.setScale(0.37);
+    
+    const hitArea = new Phaser.Geom.Rectangle(0, 0, 600, 600);
 
     this.input.on('pointerdown', function (pointer) {
-        if (!gameState.gameOver) {
+        if (!gameState.gameOver && hitArea.contains(pointer.x, pointer.y)) {
             let row = Math.floor(pointer.y / 200);
             let col = Math.floor(pointer.x / 200);
             let index = row * 3 + col;
@@ -43,17 +46,18 @@ function create() {
             if (gameState.board[index] === '') {
                 gameState.board[index] = gameState.currentPlayer;
                 placeImage(this, col * 200 + 100, row * 200 + 100, gameState.currentPlayer)
-                
+
                 if (gameState.currentPlayer == 'x') {
                     gameState.xPos.push(index);
                 } else {
                     gameState.oPos.push(index);
                 }
-        
 
                 updateTurnCount();
                 checkWinner(this);
                 switchPlayer();
+
+                console.log(index);
             }
         }
     }, this);
@@ -112,18 +116,30 @@ function checkWinner(scene) {
 function updateTurnCount() {
     if (gameState.currentPlayer === 'x') {
         gameState.turnCountX++;
-        if (gameState.turnCountX > 3) {
-            const oldestElem = gameState.xPos.shift(); 
-            gameState.board[oldestElem] = '';
-            removeImage(oldestElem, "greyX",'x')
+        if (gameState.turnCountX > 2) {
+            const oldestElem = gameState.xPos[0];
+            greyOutImage(oldestElem, "greyX");
+            if (gameState.turnCountX > 3) {
+                const oldestElem = gameState.xPos.shift();
+                gameState.board[oldestElem] = '';
+                removeImage(oldestElem);
+                const newOldestElem = gameState.xPos[0];
+                greyOutImage(newOldestElem, "greyX");
+            }
         }
     } else {
         gameState.turnCountO++;
-        if (gameState.turnCountO > 3) {
+        if (gameState.turnCountO > 2) {
+            const oldestElem = gameState.oPos[0];
+            greyOutImage(oldestElem, "greyO");
+            if (gameState.turnCountO > 3) {
                 const oldestElem = gameState.oPos.shift();
                 gameState.board[oldestElem] = '';
-                removeImage(oldestElem, "greyO",'o')
+                removeImage(oldestElem);
+                const newOldestElem = gameState.oPos[0];
+                greyOutImage(newOldestElem, "greyO");
             }
+        }
     }
     
     document.getElementById('turnCountX').textContent = gameState.turnCountX;
@@ -136,7 +152,7 @@ function placeImage(scene, x, y, key) {
     gameState.placedImages.push(image); 
 }
 
-function removeImage(index, removepic) {
+function removeImage(index) {
     let indexToRemove = -1;
     if (gameState.currentPlayer === 'x') {
         indexToRemove = index;
@@ -145,16 +161,36 @@ function removeImage(index, removepic) {
     }
     if (indexToRemove !== -1) {
         let imageToRemove = gameState.placedImages.find(image => image.x === (indexToRemove % 3) * 200 + 100 && image.y === Math.floor(indexToRemove / 3) * 200 + 100);
-
-        // Set texture to greyed-out version
-        imageToRemove.setTexture(removepic);
-        imageToRemove.setAlpha(0.5); // Set transparency to make it greyed-out
-
-        // Remove the image from the placedImages array immediately
-        gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
-
-        setTimeout(() => {
-            imageToRemove.destroy();
-        }, 1000); 
+        imageToRemove.destroy();
+        gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove); 
     }
+}
+
+// function removeImage(index, removepic) {
+//     let indexToRemove = -1;
+//     if (gameState.currentPlayer === 'x') {
+//         indexToRemove = index;
+//     } else {
+//         indexToRemove = index;
+//     }
+//     if (indexToRemove !== -1) {
+//         let imageToRemove = gameState.placedImages.find(image => image.x === (indexToRemove % 3) * 200 + 100 && image.y === Math.floor(indexToRemove / 3) * 200 + 100);
+
+//         // Set texture to greyed-out version
+//         imageToRemove.setTexture(removepic);
+//         imageToRemove.setAlpha(0.5); // Set transparency to make it greyed-out
+
+//         // Remove the image from the placedImages array immediately
+//         gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
+
+//         setTimeout(() => {
+//             imageToRemove.destroy();
+//         }, 1000); 
+//     }
+// }
+function greyOutImage(index, removepic) {
+    let imageToChange = gameState.placedImages.find(image => image.x === (index % 3) * 200 + 100 && image.y === Math.floor(index / 3) * 200 + 100);
+
+    // Set texture to greyed-out version
+    imageToChange.setTexture(removepic);
 }

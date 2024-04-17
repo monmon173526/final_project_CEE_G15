@@ -9,33 +9,24 @@
 </head>
 <body>
 
-    <div id="game-container">
-        <!-- Phaser game canvas will be appended here -->
-    </div>
+    <div id="game-container" style="max-width: 100%"></div>
+    
     <div id="turn-count">
         <p><span id="turnCountX">0</span></p>
         <p><span id="turnCountO">0</span></p>
     </div>
 
     <div class="Player">
-        <img src="assets/X.png" id="x" onclick="selectSymbol('X')">
-        <img src="assets/O.png" id="o" onclick="selectSymbol('O')">
+        <img src="assets/X.png" id="x" style="max-width: 70%; max-height: 50%;">
+        <img src="assets/O.png" id="o" style="max-width: 70%; max-height: 50%;">
     </div>
 
-    <!-- <div id="game-container"></div> -->
     <div id="win-message" style="display: none;"></div>
     <div id="winner-input-container" style="display:none">
         <input type="text" id="winnerNameInput" placeholder="Enter your name" required />
         <button id="submitWinnerNameBtn">Submit</button>
     </div>
 
-    <!-- <label for="textBox">Enter Text:</label>
-    <input type="text" id="textBox"> -->
-
-    <!-- <div class="player-container">
-        <input type="text" id="player1" name="player1" placeholder="Enter name for Player 1">
-        <input type="text" id="player2" name="player2" placeholder="Enter name for Player 2">
-    </div> -->
     <script type="module" src="scripts/gamelogic.js"></script>
 </body>
 </html>
