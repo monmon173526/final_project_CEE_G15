@@ -78,11 +78,32 @@ function checkWinner(scene) {
         const [a, b, c] = pattern;
         if (gameState.board[a] && gameState.board[a] === gameState.board[b] && gameState.board[a] === gameState.board[c]) {
             gameState.gameOver = true;
+            
             const winningMessage = `${gameState.currentPlayer.toUpperCase()} wins!`;
             const winMessageDiv = document.getElementById('win-message');
             winMessageDiv.textContent = winningMessage;
             winMessageDiv.style.display = 'block'; // Show the win message
-    
+            
+            // Show the input field and submit button only when a player wins
+        const winnerInputContainer = document.getElementById('winner-input-container');
+        winnerInputContainer.style.display = 'block';
+
+        const winnerNameInput = document.getElementById('winnerNameInput');
+        const submitWinnerNameBtn = document.getElementById('submitWinnerNameBtn');
+
+        // Event listener for the submit button
+        submitWinnerNameBtn.addEventListener('click', () => {
+        const winnerName = winnerNameInput.value.trim(); // Get the entered winner's name
+        if (winnerName !== '') {
+            // Process the winner's name (you can send it to a server, store in localStorage, etc.)
+            alert(`Thank you, ${winnerName}, for playing!`);
+            // You can hide the input field and button if needed
+            winnerInputContainer.style.display = 'none';
+        } else {
+            // If the input is empty, display an error message
+            alert('Please enter the winner\'s name.');
+        }
+        });
             break;
         }
     }
@@ -94,14 +115,14 @@ function updateTurnCount() {
         if (gameState.turnCountX > 3) {
             const oldestElem = gameState.xPos.shift(); 
             gameState.board[oldestElem] = '';
-            removeImage(oldestElem, "greyX")
+            removeImage(oldestElem, "greyX",'x')
         }
     } else {
         gameState.turnCountO++;
         if (gameState.turnCountO > 3) {
                 const oldestElem = gameState.oPos.shift();
                 gameState.board[oldestElem] = '';
-                removeImage(oldestElem, "greyO")
+                removeImage(oldestElem, "greyO",'o')
             }
     }
     
@@ -115,8 +136,7 @@ function placeImage(scene, x, y, key) {
     gameState.placedImages.push(image); 
 }
 
-
-function removeImage(index, remove) {
+function removeImage(index, removepic) {
     let indexToRemove = -1;
     if (gameState.currentPlayer === 'x') {
         indexToRemove = index;
@@ -126,14 +146,15 @@ function removeImage(index, remove) {
     if (indexToRemove !== -1) {
         let imageToRemove = gameState.placedImages.find(image => image.x === (indexToRemove % 3) * 200 + 100 && image.y === Math.floor(indexToRemove / 3) * 200 + 100);
 
-        const greyImage = imageToRemove.setTexture(remove);
-        greyImage.setAlpha(0.5); 
+        // Set texture to greyed-out version
+        imageToRemove.setTexture(removepic);
+        imageToRemove.setAlpha(0.5); // Set transparency to make it greyed-out
+        console.log(imageToRemove);
 
         setTimeout(() => {
             imageToRemove.destroy();
             gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
+            gameState.board[indexToRemove] = '';
         }, 1000); 
-        // imageToRemove.destroy();
-        // gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
     }
 }

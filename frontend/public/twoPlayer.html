@@ -8,7 +8,6 @@
     
 </head>
 <body>
-    <div id="game-container"></div>
 
     <div id="game-container">
         <!-- Phaser game canvas will be appended here -->
@@ -23,8 +22,12 @@
         <img src="assets/O.png" id="o" onclick="selectSymbol('O')">
     </div>
 
-    <div id="game-container"></div>
+    <!-- <div id="game-container"></div> -->
     <div id="win-message" style="display: none;"></div>
+    <div id="winner-input-container">
+        <input type="text" id="winnerNameInput" placeholder="Enter winner's name">
+        <button id="submitWinnerNameBtn">Submit</button>
+    </div>
 
     <!-- <label for="textBox">Enter Text:</label>
     <input type="text" id="textBox"> -->
