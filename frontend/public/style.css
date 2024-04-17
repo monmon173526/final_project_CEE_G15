@@ -195,7 +195,7 @@ body {
   width: 100px; 
   height: auto; /* Maintain aspect ratio */
   margin-top: 10px; /* Add spacing between images */
-  margin-right: 450px;
+  margin-right: 200px;
   
 }
 
@@ -210,4 +210,14 @@ body {
   padding-right: 20px;
   box-sizing: border-box;
   margin-top: 100px;
+}
+
+#game-container {
+  position: relative;
+  width: 800px; /* Set the width */
+  height: 600px; /* Set the height */
+  margin-top: 100px; /* Center the container */
+  margin-left: 250px;
+ 
+  border: 1px solid #000; /* Optional: Add a border */
 }
