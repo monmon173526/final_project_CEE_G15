@@ -48,8 +48,15 @@ function create() {
     gameState.turnTextElement = document.getElementById('turnText');
 
     // Initial text content
-    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
-
+    if (gameState.currentPlayer === 'x') {
+        gameState.turnTextElement.textContent = "Player \u2715 turn";
+    } else if (gameState.currentPlayer === 'o') {
+        gameState.turnTextElement.textContent = "Player \u25CB turn";
+    } else if (gameState.currentPlayer === 'rec') {
+        gameState.turnTextElement.textContent = "Player \u25A1 turn";
+    } else if (gameState.currentPlayer === 'tri') {
+        gameState.turnTextElement.textContent = "Player \u25B3 turn";
+    }
 
     this.input.on('pointerdown', function (pointer) {
         if (!gameState.gameOver && hitArea.contains(pointer.x, pointer.y)) {
@@ -91,7 +98,15 @@ function switchPlayer() {
     } else {
         gameState.currentPlayer = 'x';
     }
-    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
+    if (gameState.currentPlayer === 'x') {
+        gameState.turnTextElement.textContent = "Player \u2715 turn";
+    } else if (gameState.currentPlayer === 'o') {
+        gameState.turnTextElement.textContent = "Player \u25CB turn";
+    } else if (gameState.currentPlayer === 'rec') {
+        gameState.turnTextElement.textContent = "Player \u25A1 turn";
+    } else if (gameState.currentPlayer === 'tri') {
+        gameState.turnTextElement.textContent = "Player \u25B3 turn";
+    }
 }
 
 const winningPatterns = [
@@ -112,8 +127,16 @@ function checkWinner(scene) {
         const [a, b, c] = pattern;
         if (gameState.board[a] && gameState.board[a] === gameState.board[b] && gameState.board[a] === gameState.board[c]) {
             gameState.gameOver = true;
-
-            const winningMessage = `${gameState.currentPlayer.toUpperCase()} wins!`;
+            let winningMessage;
+            if (gameState.currentPlayer === 'x') {
+                winningMessage = '\u2715 wins!';
+            } else if (gameState.currentPlayer === 'o') {
+                winningMessage = '\u25CB wins!';
+            } else if (gameState.currentPlayer === 'rec') {
+                winningMessage = '\u25A1 wins!';
+            } else if (gameState.currentPlayer === 'tri') {
+                winningMessage = '\u25B3 wins!';
+            }
             const winMessageDiv = document.getElementById('win-message');
             winMessageDiv.textContent = winningMessage;
             winMessageDiv.style.display = 'block'; // Show the win message

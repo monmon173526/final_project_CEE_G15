@@ -37,7 +37,11 @@ function create() {
     gameState.turnTextElement = document.getElementById('turnText');
 
     // Initial text content
-    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
+    if (gameState.currentPlayer === 'x') {
+        gameState.turnTextElement.textContent = "Player \u2715 turn";
+    } else if (gameState.currentPlayer === 'o') {
+        gameState.turnTextElement.textContent = "Player \u25CB turn";
+    }
     
     const hitArea = new Phaser.Geom.Rectangle(0, 0, 600, 600);
 
@@ -73,7 +77,11 @@ function switchPlayer() {
     } else {
         gameState.currentPlayer = 'x';
     }
-    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
+    if (gameState.currentPlayer === 'x') {
+        gameState.turnTextElement.textContent = "Player \u2715 turn";
+    } else if (gameState.currentPlayer === 'o') {
+        gameState.turnTextElement.textContent = "Player \u25CB turn";
+    }
 }
 
 function checkWinner(scene) {
@@ -87,14 +95,18 @@ function checkWinner(scene) {
         const [a, b, c] = pattern;
         if (gameState.board[a] && gameState.board[a] === gameState.board[b] && gameState.board[a] === gameState.board[c]) {
             gameState.gameOver = true;
-
-            const winningMessage = `${gameState.currentPlayer.toUpperCase()} wins!`;
-            const winMessageDiv = document.getElementById('win-message');
+            let winningMessage;
+            if (gameState.currentPlayer === 'x') {
+                winningMessage = '\u2715 wins!';
+            } else if (gameState.currentPlayer === 'o') {
+                winningMessage = '\u25CB wins!';
+            }
+            const winMessageDiv = document.getElementById('win-message2p');
             winMessageDiv.textContent = winningMessage;
             winMessageDiv.style.display = 'block'; // Show the win message
             
             // Show the input field and submit button only when a player wins
-            const winnerInputContainer = document.getElementById('winner-input-container');
+            const winnerInputContainer = document.getElementById('winner-input-container2p');
             winnerInputContainer.style.display = 'block';
 
             const winnerNameInput = document.getElementById('winnerNameInput');

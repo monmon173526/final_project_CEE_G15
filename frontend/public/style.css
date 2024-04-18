@@ -150,30 +150,51 @@ body {
 }
 
 .Player img {
-  width: 150px; 
+  width: 110px; 
   height: auto; 
   margin-top: 10px; 
   margin-right: 340px;
 }
 
-/* #game-container {
-  position: relative;
-  width: 100%;
-  max-width: 100vw;
-  height: 100%;
-  max-height: 600px;
-  margin: 100px 0 0 250px;
-  overflow: hidden;
-} */
+.Player2p {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end; 
+  width: auto; 
+  padding-right: 20px; 
+  box-sizing: border-box; 
+  margin-top: 100px;
+}
 
-/* #game-container {
-  position: relative;
-  width: 100%;
-  max-width: 100vw;
-  height: calc(100vw * 9 / 16); 
-  margin: 100px 0 0 250px;
-  overflow: hidden;
-} */
+.Player2p img {
+  width: 160px; 
+  height: auto; 
+  margin-top: 10px; 
+  margin-right: 340px;
+}
+
+.Player3p {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end; 
+  width: auto; 
+  padding-right: 20px; 
+  box-sizing: border-box; 
+  margin-top: 100px;
+}
+
+.Player3p img {
+  width: 140px; 
+  height: auto; 
+  margin-top: 10px; 
+  margin-right: 340px;
+}
 
 #game-container {
   position: relative;
@@ -197,10 +218,34 @@ body {
   top: 20px;
   right: 20px;
   color: white;
-  font-size: 75px;
+  font-size: 55px;
+  margin-top: 60px;
+  margin-right: 200px;
+  font-family: monospace;
+}
+
+#turn-count3p {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 70px;
+  margin-top: 50px;
+  margin-right: 200px;
+  font-family: monospace;
+}
+
+#turncounter { 
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 80px;
   margin-top: 40px;
   margin-right: 200px;
-}
+  font-family: monospace;
+  /* for2p */
+} 
 
 #turnCountX {
   bottom: 20px;
@@ -210,31 +255,61 @@ body {
 
 #win-message {
   position: absolute;
-  bottom: 200px; 
-  right: 250px; 
+  bottom: 140px; 
+  right: 200px; 
   color: white;
   padding: 10px;
   font-size: 60px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
   margin-top: 20px;
+  font-family: monospace;
 }
+
 
 #winner-input-container {
   position: absolute;
-  bottom: 150px;
-  right: 250px;
+  bottom: 100px;
+  right: 215px;
+}
+
+#win-message2p {
+  position: absolute;
+  bottom: 240px; 
+  right: 220px; 
+  color: white;
+  padding: 10px;
+  font-size: 60px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  font-family: monospace;
+}
+
+
+#winner-input-container2p {
+  position: absolute;
+  bottom: 200px;
+  right: 235px;
+}
+
+#winnerNameInput {
+  font-family: monospace;
+}
+
+#submitWinnerNameBtn {
+  font-family: monospace;
 }
 
 #game-container3 {
+  /* grid 3p and 4p */
   position: relative;
   width: 100%;
   max-width: 100vw;
   height: auto;
   max-height: 700px;
-  margin: 90px 0 0 200px; /* Adjusted margin-left to 50px */
+  margin: 90px 0 0 200px; 
   overflow: hidden;
-  border: 3px solid black;
 }
 
 #winner {
@@ -243,7 +318,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 30px;  /* Adjust this value as needed to move the div down */
+  top: 30px;  
   margin-bottom: 30px; 
 }
 
@@ -252,8 +327,8 @@ body {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 24px;
+  font-size: 50px;
   color: white;
-  z-index: 999; /* Ensure it's on top of other elements */
-} /* turn text for 4p
-
+  z-index: 999; 
+  font-family: monospace;
+} 
