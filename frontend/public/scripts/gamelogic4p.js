@@ -16,22 +16,26 @@ let gameState = {
     xPos: [],
     oPos: [],
     recPos: [],
+    triPos: [],
     placedImages: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     currentPlayer: 'x',
     gameOver: false,
     turnCountX: 0, // Counter for player x's turns
     turnCountO: 0, // Counter for player o's turns
-    turnCountRec: 0 // Counter for player rec's turns
+    turnCountRec: 0, // Counter for player rec's turns
+    turnCountTri: 0
 };
 
 function preload() {
     this.load.image('board', 'assets/4x4.png');
     this.load.image('x', 'assets/X.png');
     this.load.image('o', 'assets/O.png');
-    this.load.image('rec', 'assets/Rec.png')
+    this.load.image('rec', 'assets/Rec.png');
+    this.load.image('tri', 'assets/Tri.png');
     this.load.image('greyX', 'assets/X2.png');
     this.load.image('greyO', 'assets/O2.png');
     this.load.image('greyRec', 'assets/Rec2.png');
+    this.load.image('greyTri', 'assets/Tri2.png');
 }
 
 function create() {
@@ -54,8 +58,10 @@ function create() {
                     gameState.xPos.push(index);
                 } else if (gameState.currentPlayer == 'o') {
                     gameState.oPos.push(index);
-                } else {
+                } else if (gameState.currentPlayer == 'rec'){
                     gameState.recPos.push(index); 
+                } else if (gameState.currentPlayer == 'tri') { // Add this block for triangle
+                    gameState.triPos.push(index);
                 }
 
                 updateTurnCount();
@@ -75,6 +81,8 @@ function switchPlayer() {
         gameState.currentPlayer = 'o';
     } else if (gameState.currentPlayer === 'o') {
         gameState.currentPlayer = 'rec';
+    } else if (gameState.currentPlayer === 'rec') {
+        gameState.currentPlayer = 'tri';
     } else {
         gameState.currentPlayer = 'x';
     }
@@ -98,12 +106,8 @@ function checkWinner(scene) {
         const [a, b, c] = pattern;
         if (gameState.board[a] && gameState.board[a] === gameState.board[b] && gameState.board[a] === gameState.board[c]) {
             gameState.gameOver = true;
-            let winningMessage;
-            if (gameState.currentPlayer === 'rec') {
-                winningMessage = '\u25A0 wins!';
-            } else {
-                winningMessage = `${gameState.currentPlayer.toUpperCase()} wins!`;
-            }
+
+            const winningMessage = `${gameState.currentPlayer.toUpperCase()} wins!`;
             const winMessageDiv = document.getElementById('win-message');
             winMessageDiv.textContent = winningMessage;
             winMessageDiv.style.display = 'block'; // Show the win message
@@ -160,7 +164,7 @@ function updateTurnCount() {
                 greyOutImage(newOldestElem, "greyO");
             }
         }
-    } else {
+    } else if (gameState.currentPlayer === 'rec') {
         gameState.turnCountRec++;
         if (gameState.turnCountRec > 2) {
             const oldestElem = gameState.recPos[0];
@@ -173,11 +177,25 @@ function updateTurnCount() {
                 greyOutImage(newOldestElem, "greyRec");
             }
         }
+    } else {
+        gameState.turnCountTri++;
+        if (gameState.turnCountTri > 2) {
+            const oldestElem = gameState.triPos[0];
+            greyOutImage(oldestElem, "greyTri");
+            if (gameState.turnCountTri > 3) {
+                const oldestElem = gameState.triPos.shift();
+                gameState.board[oldestElem] = '';
+                removeImage(oldestElem);
+                const newOldestElem = gameState.triPos[0];
+                greyOutImage(newOldestElem, "greyTri");
+            }
+        }
     }
     
     document.getElementById('turnCountX').textContent = gameState.turnCountX;
     document.getElementById('turnCountO').textContent = gameState.turnCountO;
     document.getElementById('turnCountRec').textContent = gameState.turnCountRec;
+    document.getElementById('turnCountTri').textContent = gameState.turnCountTri;
 }
 
 
@@ -185,21 +203,6 @@ function placeImage(scene, x, y, key) {
     const image = scene.add.image(x, y, key).setScale(0.175);
     gameState.placedImages.push(image); 
 }
-
-// function removeImage(index) {
-//     let indexToRemove = -1;
-//     indexToRemove = index;
-//     if (indexToRemove !== -1) {
-//         let imageToRemove = gameState.placedImages.find(image => image.x === (indexToRemove % 4) * 160 + 160 && image.y === Math.floor(indexToRemove / 4) * 160 + 110);
-//         imageToRemove.destroy();
-//         gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove); 
-//     }
-// }
-
-// function greyOutImage(index, removepic) {
-//     let imageToChange = gameState.placedImages.find(image => image.x === (indexToRemove % 4) * 160 + 160 && image.y === Math.floor(indexToRemove / 4) * 160 + 110);
-//     imageToChange.setTexture(removepic);
-// }
 
 function removeImage(index) {
     if (index >= 0 && index < gameState.board.length) {

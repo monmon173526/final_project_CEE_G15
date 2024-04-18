@@ -235,3 +235,8 @@ body {
   overflow: hidden;
   border: 3px solid black;
 }
+
+#winner {
+  position: relative;
+  margin-bottom: 20px;
+}
