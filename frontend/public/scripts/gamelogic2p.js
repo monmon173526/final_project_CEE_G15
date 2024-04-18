@@ -33,6 +33,11 @@ function preload() {
 function create() {
     const boardImage = this.add.image(300, 300, 'board');
     boardImage.setScale(0.37);
+
+    gameState.turnTextElement = document.getElementById('turnText');
+
+    // Initial text content
+    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
     
     const hitArea = new Phaser.Geom.Rectangle(0, 0, 600, 600);
 
@@ -68,6 +73,7 @@ function switchPlayer() {
     } else {
         gameState.currentPlayer = 'x';
     }
+    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
 }
 
 function checkWinner(scene) {
@@ -145,6 +151,10 @@ function updateTurnCount() {
     document.getElementById('turnCountO').textContent = gameState.turnCountO;
 }
 
+function updateTurnText() {
+    const turnText = `Turn: ${gameState.currentPlayer.toUpperCase()}`;
+    gameState.turnText.setText(turnText);
+}
 
 function placeImage(scene, x, y, key) {
     const image = scene.add.image(x, y, key).setScale(0.2);

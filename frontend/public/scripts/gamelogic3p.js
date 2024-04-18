@@ -39,11 +39,16 @@ function create() {
     const boardImage = this.add.image(400, 350, 'board'); 
     boardImage.setScale(0.4);
 
-    gameState.turnText = this.add.text(400, 50, `Turn: ${gameState.currentPlayer.toUpperCase()}`, { 
-        fill: '#ffffff',
-        fontSize: '24px',
-        fontFamily: 'Arial'
-    }).setOrigin(0.5);
+    gameState.turnTextElement = document.getElementById('turnText');
+
+    // Initial text content
+    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
+
+    // gameState.turnText = this.add.text(400, 50, `Turn: ${gameState.currentPlayer.toUpperCase()}`, { 
+    //     fill: '#ffffff',
+    //     fontSize: '24px',
+    //     fontFamily: 'Arial'
+    // }).setOrigin(0.5);
 
     const hitArea = new Phaser.Geom.Rectangle(50, 50, 600, 600); 
 
@@ -87,7 +92,7 @@ function switchPlayer() {
     } else {
         gameState.currentPlayer = 'x';
     }
-    updateTurnText();
+    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
 }
 
 const winningPatterns = [
@@ -191,9 +196,10 @@ function updateTurnCount() {
 }
 
 function updateTurnText() {
-    const turnText = `Turn: ${gameState.currentPlayer.toUpperCase()}`;
-    gameState.turnText.setText(turnText);
+    const turnMessage = document.getElementById('turnMessage');
+    turnMessage.textContent = `Turn: ${gameState.currentPlayer.toUpperCase()}`;
 }
+
 
 
 function placeImage(scene, x, y, key) {

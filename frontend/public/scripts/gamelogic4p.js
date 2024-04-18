@@ -44,6 +44,13 @@ function create() {
 
     const hitArea = new Phaser.Geom.Rectangle(50, 50, 600, 600); // Adjusted the hit area
 
+    // Add this to update the turn text on the HTML page
+    gameState.turnTextElement = document.getElementById('turnText');
+
+    // Initial text content
+    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
+
+
     this.input.on('pointerdown', function (pointer) {
         if (!gameState.gameOver && hitArea.contains(pointer.x, pointer.y)) {
             let row = Math.floor((pointer.y - 50) / 160); // Adjusted the row calculation
@@ -84,6 +91,7 @@ function switchPlayer() {
     } else {
         gameState.currentPlayer = 'x';
     }
+    gameState.turnTextElement.textContent = `Player ${gameState.currentPlayer.toUpperCase()}'s turn`;
 }
 
 const winningPatterns = [
