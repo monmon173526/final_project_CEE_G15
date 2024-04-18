@@ -30,7 +30,6 @@ function preload() {
     this.load.image('greyO', 'assets/O2.png');
 }
 
-
 function create() {
     const boardImage = this.add.image(300, 300, 'board');
     boardImage.setScale(0.37);
@@ -166,31 +165,8 @@ function removeImage(index) {
     }
 }
 
-// function removeImage(index, removepic) {
-//     let indexToRemove = -1;
-//     if (gameState.currentPlayer === 'x') {
-//         indexToRemove = index;
-//     } else {
-//         indexToRemove = index;
-//     }
-//     if (indexToRemove !== -1) {
-//         let imageToRemove = gameState.placedImages.find(image => image.x === (indexToRemove % 3) * 200 + 100 && image.y === Math.floor(indexToRemove / 3) * 200 + 100);
-
-//         // Set texture to greyed-out version
-//         imageToRemove.setTexture(removepic);
-//         imageToRemove.setAlpha(0.5); // Set transparency to make it greyed-out
-
-//         // Remove the image from the placedImages array immediately
-//         gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove);
-
-//         setTimeout(() => {
-//             imageToRemove.destroy();
-//         }, 1000); 
-//     }
-// }
 function greyOutImage(index, removepic) {
     let imageToChange = gameState.placedImages.find(image => image.x === (index % 3) * 200 + 100 && image.y === Math.floor(index / 3) * 200 + 100);
-
     // Set texture to greyed-out version
     imageToChange.setTexture(removepic);
 }
