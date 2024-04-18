@@ -18,6 +18,7 @@ let gameState = {
     recPos: [],
     placedImages: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     currentPlayer: 'x',
+    turnText: null,
     gameOver: false,
     turnCountX: 0, // Counter for player x's turns
     turnCountO: 0, // Counter for player o's turns
@@ -38,17 +39,23 @@ function create() {
     const boardImage = this.add.image(400, 350, 'board'); 
     boardImage.setScale(0.4);
 
-    const hitArea = new Phaser.Geom.Rectangle(50, 50, 600, 600); // Adjusted the hit area
+    gameState.turnText = this.add.text(400, 50, `Turn: ${gameState.currentPlayer.toUpperCase()}`, { 
+        fill: '#ffffff',
+        fontSize: '24px',
+        fontFamily: 'Arial'
+    }).setOrigin(0.5);
+
+    const hitArea = new Phaser.Geom.Rectangle(50, 50, 600, 600); 
 
     this.input.on('pointerdown', function (pointer) {
         if (!gameState.gameOver && hitArea.contains(pointer.x, pointer.y)) {
-            let row = Math.floor((pointer.y - 50) / 160); // Adjusted the row calculation
-            let col = Math.floor((pointer.x - 50) / 160); // Adjusted the column calculation
+            let row = Math.floor((pointer.y - 50) / 160); 
+            let col = Math.floor((pointer.x - 50) / 160); 
             let index = row * 4 + col;
 
             if (gameState.board[index] === '') {
                 gameState.board[index] = gameState.currentPlayer;
-                placeImage(this, col * 160 + 160, row * 160 + 110, gameState.currentPlayer); // Adjusted the symbol placement
+                placeImage(this, col * 160 + 160, row * 160 + 110, gameState.currentPlayer); 
 
                 if (gameState.currentPlayer == 'x') {
                     gameState.xPos.push(index);
@@ -63,6 +70,8 @@ function create() {
                 switchPlayer();
 
                 console.log(gameState.xPos);
+
+                currentPlayerImage.setTexture(gameState.currentPlayer);
             }
         }
     }, this);
@@ -78,6 +87,7 @@ function switchPlayer() {
     } else {
         gameState.currentPlayer = 'x';
     }
+    updateTurnText();
 }
 
 const winningPatterns = [
@@ -180,26 +190,16 @@ function updateTurnCount() {
     document.getElementById('turnCountRec').textContent = gameState.turnCountRec;
 }
 
+function updateTurnText() {
+    const turnText = `Turn: ${gameState.currentPlayer.toUpperCase()}`;
+    gameState.turnText.setText(turnText);
+}
+
 
 function placeImage(scene, x, y, key) {
     const image = scene.add.image(x, y, key).setScale(0.175);
     gameState.placedImages.push(image); 
 }
-
-// function removeImage(index) {
-//     let indexToRemove = -1;
-//     indexToRemove = index;
-//     if (indexToRemove !== -1) {
-//         let imageToRemove = gameState.placedImages.find(image => image.x === (indexToRemove % 4) * 160 + 160 && image.y === Math.floor(indexToRemove / 4) * 160 + 110);
-//         imageToRemove.destroy();
-//         gameState.placedImages = gameState.placedImages.filter(image => image !== imageToRemove); 
-//     }
-// }
-
-// function greyOutImage(index, removepic) {
-//     let imageToChange = gameState.placedImages.find(image => image.x === (indexToRemove % 4) * 160 + 160 && image.y === Math.floor(indexToRemove / 4) * 160 + 110);
-//     imageToChange.setTexture(removepic);
-// }
 
 function removeImage(index) {
     if (index >= 0 && index < gameState.board.length) {

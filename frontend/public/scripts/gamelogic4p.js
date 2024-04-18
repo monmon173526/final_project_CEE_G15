@@ -74,8 +74,6 @@ function create() {
     }, this);
 }
 
-
-
 function switchPlayer() {
     if (gameState.currentPlayer === 'x') {
         gameState.currentPlayer = 'o';
