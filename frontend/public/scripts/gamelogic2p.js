@@ -19,7 +19,8 @@ let gameState = {
     currentPlayer: 'x',
     gameOver: false,
     turnCountX: 0, // Counter for player x's turns
-    turnCountO: 0  // Counter for player o's turns
+    turnCountO: 0,  // Counter for player o's turns
+    turnCountWinner: 0
 };
 
 function preload() {
@@ -64,8 +65,6 @@ function create() {
                 updateTurnCount();
                 checkWinner(this);
                 switchPlayer();
-
-                console.log(index);
             }
         }
     }, this);
@@ -98,9 +97,13 @@ function checkWinner(scene) {
             let winningMessage;
             if (gameState.currentPlayer === 'x') {
                 winningMessage = '\u2715 wins!';
+                gameState.turnCountWinner = gameState.turnCountX;
             } else if (gameState.currentPlayer === 'o') {
                 winningMessage = '\u25CB wins!';
+                gameState.turnCountWinner = gameState.turnCountO;
             }
+            console.log('winner'+ gameState.turnCountWinner);
+
             const winMessageDiv = document.getElementById('win-message2p');
             winMessageDiv.textContent = winningMessage;
             winMessageDiv.style.display = 'block'; // Show the win message
