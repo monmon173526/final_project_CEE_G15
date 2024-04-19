@@ -184,16 +184,6 @@ body {
   font-family: monospace;
 }
 
-#winner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 30px;  
-  margin-bottom: 30px; 
-}
-
 #turnText {
   position: fixed;
   top: 0;

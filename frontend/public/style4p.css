@@ -7,7 +7,6 @@
   margin-top: 80px;
   margin-left: 0;
   overflow: hidden;
-  border: 5px solid black;
 }
 
 @media (max-width: 1300px) {
@@ -21,7 +20,6 @@
     margin-top: 80px;
     margin-left: 0;
     overflow: hidden;
-    border: 5px solid black;
   }
 }
 
@@ -52,6 +50,36 @@
   font-size: 55px;
   margin-top: 60px;
   margin-left: 50px;
+  font-family: monospace;
+}
+
+#win-message4p {
+  position: absolute;
+  top: 0;
+  left: 0; 
+  color: white;
+  padding: 10px;
+  font-size: 60px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 600px;
+  margin-left: 1000px;
+  font-family: monospace;
+}
+
+#winner-input-container4p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 700px;
+  margin-left: 1000px;
+}
+
+#winnerNameInput4p {
+  font-family: monospace;
+}
+
+#submitWinnerNameBtn4p {
   font-family: monospace;
 }
 
@@ -90,4 +118,28 @@
     font-family: monospace;
     letter-spacing: 120px;
   }
+
+  #win-message4p {
+    position: relative;
+    top: 0;
+    right: 0; 
+    color: white;
+    padding: 10px;
+    font-size: 60px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 100px;
+    margin-right: 200px;
+    font-family: monospace;
+  }
+  
+  #winner-input-container4p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 200px;
+    margin-right: 200px;
+  }
 }
+
+

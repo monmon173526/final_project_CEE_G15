@@ -1,20 +1,26 @@
 #game-container3p {
-    position: absolute;
-    top: 110px;
-    left: 10%;
-    width: 800px; 
-    height: 700px;
-    overflow: hidden;
-    /* border: 5px solid white; */
+  position: relative;
+  width: 800px;
+  height: 700px;
+  top: 0;
+  left: 10vw;
+  margin-top: 80px;
+  margin-left: 0;
+  overflow: hidden;
 }
 
-  
-/* Media query for smaller screens */
-@media (max-width: 1000px) {
-#game-container3p {
-    left: 50%; /* Position at the horizontal center */
-    transform: translate(-50%, 0); /* Center both horizontally and vertically */
-}
+@media (max-width: 1300px) {
+  #game-container3p {
+    position: relative;
+    width: 800px;
+    height: 700px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 80px;
+    margin-left: 0;
+    overflow: hidden;
+  }
 }
 
 
@@ -44,4 +50,70 @@
     font-size: 70px;
     margin-top: 80px;
     font-family: monospace;
+  }
+
+  #win-message3p {
+    position: absolute;
+    /* top: 0;  */
+    top: 0;
+    right: 200px; 
+    color: white;
+    padding: 10px;
+    font-size: 60px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 600px;
+    font-family: monospace;
+  }
+
+  #winner-input-container3p {
+    position: absolute;
+    top: 0;
+    right: 215px;
+    margin-top: 700px;
+  }
+  
+  #winnerNameInput3p {
+    font-family: monospace;
+  }
+  
+  #submitWinnerNameBtn3p {
+    font-family: monospace;
+  }
+
+  @media (max-width: 1300px) {
+    .Player3p {
+      position: absolute; 
+      top: 700px; 
+      left: 48%; 
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row; 
+      align-items: flex-end; 
+      padding-right: 20px; 
+      box-sizing: border-box; 
+      margin-top: 100px;
+    }
+    
+    .Player3p img {
+      width: 110px; 
+      height: auto;
+      margin-top: 10px; 
+      margin-left: 50px;
+    }
+  
+    #turn-count3p {
+      position: absolute;
+      top: 820px;
+      left: 55.5%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      color: white;
+      font-size: 55px;
+      margin-top: 60px;
+      font-family: monospace;
+      letter-spacing: 120px;
+    }
   }

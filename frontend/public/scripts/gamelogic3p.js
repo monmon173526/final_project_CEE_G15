@@ -135,16 +135,16 @@ function checkWinner(scene) {
                 winningMessage = '\u25A1 wins!';
                 gameState.turnCountWinner = gameState.turnCountRec;
             }
-            const winMessageDiv = document.getElementById('win-message');
+            const winMessageDiv = document.getElementById('win-message3p');
             winMessageDiv.textContent = winningMessage;
             winMessageDiv.style.display = 'block'; // Show the win message
             
             // Show the input field and submit button only when a player wins
-            const winnerInputContainer = document.getElementById('winner-input-container');
+            const winnerInputContainer = document.getElementById('winner-input-container3p');
             winnerInputContainer.style.display = 'block';
 
-            const winnerNameInput = document.getElementById('winnerNameInput');
-            const submitWinnerNameBtn = document.getElementById('submitWinnerNameBtn');
+            const winnerNameInput = document.getElementById('winnerNameInput3p');
+            const submitWinnerNameBtn = document.getElementById('submitWinnerNameBtn3p');
 
         // Event listener for the submit button
             submitWinnerNameBtn.addEventListener('click', () => {

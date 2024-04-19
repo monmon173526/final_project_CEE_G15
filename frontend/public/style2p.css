@@ -1,15 +1,13 @@
 #game-container2p {
-  position: relative; /* Change to fixed */
-  top: 0; /* Adjust based on your design */
-  left: 250px; /* Adjust based on your design */
+  position: relative; 
+  top: 0; 
+  left: 250px; 
   margin-top: 80px ;
   margin-left: 100px;
   width: 600px;
-  /* max-width: 40%; */
   height: auto;
   /* max-height: 600px; */
   overflow: hidden;
-  border: 5px solid black;
   /* transition: all 0.2s ease-in-out;  */
 }
 
@@ -76,6 +74,20 @@ transition: width 0.3s ease-in-out;
     margin-top: 600px ;
   }
 
+  #winner-input-container {
+    position: absolute;
+    top: 0;
+    right: 215px;
+    margin-top: 700px;
+  }
+  
+  #winnerNameInput {
+    font-family: monospace;
+  }
+  
+  #submitWinnerNameBtn {
+    font-family: monospace;
+  }
 
   /* @media (max-width: 1300px) {
     #game-container2p {
@@ -101,12 +113,11 @@ transition: width 0.3s ease-in-out;
       left: calc(50% - 400px); /* Half of the container's width */
       margin-top: 80px;
       overflow: hidden;
-      border: 5px solid black;
     }
 
     .Player2p {
       position: absolute;
-      top: 780px; /* Adjust the top position based on your design */
+      top: 700px; /* Adjust the top position based on your design */
       left: 50%; /* Half of the total width of two players (2 * 160px + 2 * 30px) */
       transform: translateX(-50%);
       display: flex;
@@ -123,7 +134,7 @@ transition: width 0.3s ease-in-out;
 
     #turncounter {
       position: absolute;
-      top: 950px; /* Adjust the top position to move it below the game container */
+      top: 880px; /* Adjust the top position to move it below the game container */
       left: 51%; /* Center it horizontally */
       color: white;
       font-size: 90px;
@@ -137,5 +148,33 @@ transition: width 0.3s ease-in-out;
 
     #turnCountX {
       margin-right: 20px;
+    }
+
+    #win-message2p {
+      position: absolute;
+      top: 630px; /* Adjusted to be just below the turn counter */
+      left: 40%;
+      color: white;
+      padding: 10px;
+      font-size: 60px;
+      border-radius: 1px;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-family: monospace;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
+    }
+    
+    #winner-input-container2p {
+      position: absolute;
+      top: 550px; /* Adjusted to be aligned with the win message */
+      left: calc(51% + 150px); /* Adjust the left position to be right beside the win message */
+      /* margin-top: 600px; */
+      transform: translateX(-50%);
+    }
+
+    .winner {
+      display: flex;
+      flex-direction: row;
     }
 }
