@@ -2,6 +2,7 @@
 body {
   background-image: url("assets/background.jpg");
   background-color: rgb(255, 255, 255);
+  overflow: hidden;
 }
 
 /* audio */
@@ -139,11 +140,10 @@ body {
 .Player {
   position: absolute; 
   top: 0; 
-  right: 0; 
+  left: 950px; 
   display: flex;
   flex-direction: column; 
   align-items: flex-end; 
-  width: auto; 
   padding-right: 20px; 
   box-sizing: border-box; 
   margin-top: 100px;
@@ -153,13 +153,13 @@ body {
   width: 110px; 
   height: auto; 
   margin-top: 10px; 
-  margin-right: 340px;
+  margin-left: 50px;
 }
 
-.Player2p {
+/* .Player2p {
   position: absolute; 
   top: 0; 
-  right: 0; 
+  left: 0; 
   display: flex;
   flex-direction: column; 
   align-items: flex-end; 
@@ -170,16 +170,17 @@ body {
 }
 
 .Player2p img {
+  max-width: 100%;
   width: 160px; 
   height: auto; 
   margin-top: 10px; 
-  margin-right: 340px;
-}
+  margin-left: 950px;
+} */
 
-.Player3p {
+.Player2p {
   position: absolute; 
   top: 0; 
-  right: 0; 
+  left: 950px;
   display: flex;
   flex-direction: column; 
   align-items: flex-end; 
@@ -187,13 +188,33 @@ body {
   padding-right: 20px; 
   box-sizing: border-box; 
   margin-top: 100px;
+  transition: left 0.3s ease-in-out;
+}
+
+.Player2p img {
+  width: 160px;
+  margin-top: 10px; 
+  margin-left: 30px;
+  transition: width 0.3s ease-in-out;
+}
+
+
+.Player3p {
+  position: absolute; 
+  top: 0; 
+  left: 900px; 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end; 
+  box-sizing: border-box; 
+  margin-top: 100px;
 }
 
 .Player3p img {
   width: 140px; 
-  height: auto; 
+  height: 140px;
   margin-top: 10px; 
-  margin-right: 340px;
+  margin-left: 50px;
 }
 
 #game-container {
@@ -204,93 +225,131 @@ body {
   max-height: 600px;
   margin: 100px 0 0 250px;
   overflow: hidden;
+  transition: margin 0.2s ease-in-out;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   #game-container {
-    max-width: 600px;
-    height: auto;
+      margin: 50px 0 0 50px;
+  }
+  .Player2p {
+      margin: 50px 0 0 50px;
+      left: 80%; /* Adjust left position for .Player2p */
+  }
+}
+
+@media (max-width: 990px) {
+  #game-container {
+      margin: 40px 0 0 40px;
+  }
+  .Player2p {
+      margin: 40px 0 0 40px;
+      left: 70%; /* Adjust left position for .Player2p */
+  }
+}
+
+@media (max-width: 768px) {
+  #game-container {
+      margin: 20px auto;
+  }
+  .Player2p {
+      margin: 20px auto;
+      left: 60%; /* Adjust left position for .Player2p */
+  }
+}
+
+@media (max-width: 576px) {
+  #game-container {
+      margin: 10px auto;
+  }
+  .Player2p {
+      margin: 10px auto;
+      left: 50%; /* Adjust left position for .Player2p */
   }
 }
 
 #turn-count {
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 1150px;
   color: white;
   font-size: 55px;
   margin-top: 60px;
-  margin-right: 200px;
+  margin-left: 50px;
   font-family: monospace;
 }
 
 #turn-count3p {
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 1150px;
   color: white;
   font-size: 70px;
-  margin-top: 50px;
-  margin-right: 200px;
+  margin-top: 40px;
+  margin-left: 50px;
   font-family: monospace;
 }
 
 #turncounter { 
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 1200px;
   color: white;
   font-size: 80px;
   margin-top: 40px;
-  margin-right: 200px;
+  margin-left: 30px;
   font-family: monospace;
-  /* for2p */
 } 
 
 #turnCountX {
-  bottom: 20px;
-  margin-bottom: 30px;  
+  bottom: 2%;
+  margin-bottom: 3%;  
 }
 
 
 #win-message {
   position: absolute;
-  bottom: 140px; 
+  /* top: 0;  */
+  top: 0;
   right: 200px; 
   color: white;
   padding: 10px;
   font-size: 60px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 20px;
+  margin-top: 600px;
   font-family: monospace;
 }
 
 
 #winner-input-container {
   position: absolute;
-  bottom: 100px;
+  top: 0;
   right: 215px;
+  margin-top: 700px;
 }
 
 #win-message2p {
   position: absolute;
-  bottom: 240px; 
+  top: 0;
+  /* bottom: 0;  */
   right: 220px; 
   color: white;
   padding: 10px;
   font-size: 60px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 20px;
+  margin-top: 500px;
+  /* margin-bottom: 100px; */
   font-family: monospace;
 }
 
 
 #winner-input-container2p {
   position: absolute;
-  bottom: 200px;
+  top: 0;
   right: 235px;
+  margin-top: 600px ;
 }
 
 #winnerNameInput {
@@ -308,8 +367,16 @@ body {
   max-width: 100vw;
   height: auto;
   max-height: 700px;
-  margin: 90px 0 0 200px; 
+  margin-top: 100px;
+  margin-left: 160px;
   overflow: hidden;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  #game-container3 {
+    margin: 90px 0; /* Remove left margin on smaller screens */
+  }
 }
 
 #winner {
@@ -324,11 +391,14 @@ body {
 
 #turnText {
   position: fixed;
-  top: 20px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   font-size: 50px;
   color: white;
-  z-index: 999; 
   font-family: monospace;
-} 
+  padding: 40px;
+  z-index: 999;
+}
+
+
