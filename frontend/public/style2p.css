@@ -1,0 +1,108 @@
+#game-container2p {
+    position: relative;
+    width: 100%;
+    max-width: 60%;
+    height: auto;
+    max-height: 600px;
+    margin: 100px 0 0 250px;
+    overflow: hidden;
+    border: 5px solid black;
+    transition: margin 0.2s ease-in-out;
+}
+
+.Player2p {
+    position: absolute; 
+    top: 0; 
+    left: 950px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+    width: auto; 
+    padding-right: 20px; 
+    box-sizing: border-box; 
+    margin-top: 100px;
+    transition: left 0.3s ease-in-out;
+}
+  
+.Player2p img {
+width: 160px;
+margin-top: 10px; 
+margin-left: 30px;
+transition: width 0.3s ease-in-out;
+}
+
+
+  @media (max-width: 1200px) {
+    #game-container2p {
+        margin: 50px 0 0 50px;
+    }
+    .Player2p {
+        left: 80%;
+    }
+    .Player2p img {
+        width: 70%; /* Adjust image width */
+    }
+    #turncounter {
+      left: 80%;
+      width: 70%;
+    }
+  }
+  
+  @media (max-width: 990px) {
+    #game-container2p {
+        margin: 40px 0 0 40px;
+    }
+    .Player2p {
+        left: 70%;
+    }
+    .Player2p img {
+        width: 50%; /* Adjust image width */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #game-container2p {
+        margin: 20px auto;
+    }
+    .Player2p {
+        left: 60%;
+    }
+    .Player2p img {
+        width: 40%; /* Adjust image width */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    #game-container2p {
+        margin: 10px auto;
+    }
+    .Player2p {
+        left: 50%;
+    }
+    .Player2p img {
+        width: 20%; /* Adjust image width */
+    }
+  }
+
+  #win-message2p {
+    position: absolute;
+    top: 0;
+    /* bottom: 0;  */
+    right: 220px; 
+    color: white;
+    padding: 10px;
+    font-size: 60px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 500px;
+    /* margin-bottom: 100px; */
+    font-family: monospace;
+  }
+  
+  
+  #winner-input-container2p {
+    position: absolute;
+    top: 0;
+    right: 235px;
+    margin-top: 600px ;
+  }

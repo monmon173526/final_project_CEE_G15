@@ -3,12 +3,14 @@ const config = {
     width: 650,
     height: 650,
     transparent: true,
-    parent: 'game-container',
+    parent: 'game-container2p',
     scene: {
         preload: preload,
         create: create
     }
 };
+
+
 
 const game = new Phaser.Game(config);
 let gameState = {

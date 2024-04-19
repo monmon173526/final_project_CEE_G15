@@ -5,30 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style3p.css" />
   </head>
   <body>
     <div id="turnText"></div>
-    <div id="game-container3"></div>
 
-    <div class="Player3p">
-      <img src="assets/X.png" id="x">
-      <img src="assets/O.png" id="o">
-      <img src="assets/Rec.png" id="rec">
-  </div>
-
-  <div id="turn-count3p">
-    <p><span id="turnCountX">0</span></p>
-    <p><span id="turnCountO">0</span></p>
-    <p><span id="turnCountRec">0</span></p>
-  </div>
-
-  
-  
-  <div id="win-message" style="display: none;"></div>
-    <div id="winner-input-container" style="display:none">
-        <input type="text" id="winnerNameInput" placeholder="Enter your name" required />
-        <button id="submitWinnerNameBtn">Submit</button>
+    <div>
+      <div id="game-container3p"></div>
+      <div>
+        <div class="Player3p">
+          <img src="assets/X.png" id="x">
+          <img src="assets/O.png" id="o">
+          <img src="assets/Rec.png" id="rec">
+        </div>
+        <div id="turn-count3p">
+          <p><span id="turnCountX">0</span></p>
+          <p><span id="turnCountO">0</span></p>
+          <p><span id="turnCountRec">0</span></p>
+        </div>
+        <div>
+          <div id="win-message" style="display: none;"></div>
+          <div id="winner-input-container" style="display:none">
+              <input type="text" id="winnerNameInput" placeholder="Enter your name" required />
+              <button id="submitWinnerNameBtn">Submit</button>
+          </div>
+        </div>
+      </div>
     </div>
+  
 
 
     <script type="module" src="scripts/gamelogic3p.js"></script>

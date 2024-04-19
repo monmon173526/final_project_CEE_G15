@@ -1,0 +1,49 @@
+#turn-count3p {
+    position: absolute;
+    top: 20px;
+    left: 1150px;
+    color: white;
+    font-size: 70px;
+    margin-top: 40px;
+    margin-left: 50px;
+    font-family: monospace;
+  }
+
+#game-container3p {
+    /* grid 3p and 4p */
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    height: vh;
+    max-height: 700p;
+    margin-top: 100px;
+    margin-left: 160px;
+    overflow: hidden;
+
+    border: 5px solid black;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    #game-container3 {
+      margin: 90px 0; /* Remove left margin on smaller screens */
+    }
+  }
+
+  .Player3p {
+    position: absolute; 
+    top: 0; 
+    left: 900px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+    box-sizing: border-box; 
+    margin-top: 100px;
+  }
+  
+  .Player3p img {
+    width: 140px; 
+    height: 140px;
+    margin-top: 10px; 
+    margin-left: 50px;
+  }
