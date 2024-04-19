@@ -1,14 +1,18 @@
 #game-container2p {
-    position: relative;
-    width: 100%;
-    max-width: 60%;
-    height: auto;
-    max-height: 600px;
-    margin: 100px 0 0 250px;
-    overflow: hidden;
-    border: 5px solid black;
-    transition: margin 0.2s ease-in-out;
+  position: relative; /* Change to fixed */
+  top: 0; /* Adjust based on your design */
+  left: 250px; /* Adjust based on your design */
+  margin-top: 80px ;
+  margin-left: 100px;
+  width: 600px;
+  /* max-width: 40%; */
+  height: auto;
+  /* max-height: 600px; */
+  overflow: hidden;
+  border: 5px solid black;
+  /* transition: all 0.2s ease-in-out;  */
 }
+
 
 .Player2p {
     position: absolute; 
@@ -23,6 +27,7 @@
     margin-top: 100px;
     transition: left 0.3s ease-in-out;
 }
+
   
 .Player2p img {
 width: 160px;
@@ -31,58 +36,22 @@ margin-left: 30px;
 transition: width 0.3s ease-in-out;
 }
 
+#turncounter { 
+  position: absolute;
+  top: 20px;
+  left: 1200px;
+  color: white;
+  font-size: 90px;
+  margin-top: 20px;
+  margin-left: 30px;
+  font-family: monospace;
+} 
 
-  @media (max-width: 1200px) {
-    #game-container2p {
-        margin: 50px 0 0 50px;
-    }
-    .Player2p {
-        left: 80%;
-    }
-    .Player2p img {
-        width: 70%; /* Adjust image width */
-    }
-    #turncounter {
-      left: 80%;
-      width: 70%;
-    }
-  }
-  
-  @media (max-width: 990px) {
-    #game-container2p {
-        margin: 40px 0 0 40px;
-    }
-    .Player2p {
-        left: 70%;
-    }
-    .Player2p img {
-        width: 50%; /* Adjust image width */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    #game-container2p {
-        margin: 20px auto;
-    }
-    .Player2p {
-        left: 60%;
-    }
-    .Player2p img {
-        width: 40%; /* Adjust image width */
-    }
-  }
-  
-  @media (max-width: 576px) {
-    #game-container2p {
-        margin: 10px auto;
-    }
-    .Player2p {
-        left: 50%;
-    }
-    .Player2p img {
-        width: 20%; /* Adjust image width */
-    }
-  }
+#turnCountX {
+  bottom: 2%;
+  margin-bottom: 3%;  
+}
+
 
   #win-message2p {
     position: absolute;
@@ -106,3 +75,67 @@ transition: width 0.3s ease-in-out;
     right: 235px;
     margin-top: 600px ;
   }
+
+
+  /* @media (max-width: 1300px) {
+    #game-container2p {
+      position: relative;
+      width: 800px;
+      height: 700px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 80px;
+      margin-left: 0;
+      overflow: hidden;
+      border: 5px solid black;
+    }
+  } */
+
+  @media (max-width: 1300px) {
+    #game-container2p {
+      position: relative;
+      width: 800px;
+      height: 700px;
+      top: 0;
+      left: calc(50% - 400px); /* Half of the container's width */
+      margin-top: 80px;
+      overflow: hidden;
+      border: 5px solid black;
+    }
+
+    .Player2p {
+      position: absolute;
+      top: 780px; /* Adjust the top position based on your design */
+      left: 50%; /* Half of the total width of two players (2 * 160px + 2 * 30px) */
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; /* This will align the player images horizontally */
+      width: 400px; /* Adjust based on your design */
+    }
+
+    .Player2p img {
+      width: 160px;
+      margin: 0 15px; /* Horizontal margin */
+      transition: width 0.3s ease-in-out;
+    }
+
+    #turncounter {
+      position: absolute;
+      top: 950px; /* Adjust the top position to move it below the game container */
+      left: 51%; /* Center it horizontally */
+      color: white;
+      font-size: 90px;
+      font-family: monospace;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      transform: translateX(-50%);
+      letter-spacing: 100px;
+    }
+
+    #turnCountX {
+      margin-right: 20px;
+    }
+}

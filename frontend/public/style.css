@@ -2,7 +2,6 @@
 body {
   background-image: url("assets/background.jpg");
   background-color: rgb(255, 255, 255);
-  overflow: hidden;
 }
 
 /* audio */
@@ -201,17 +200,17 @@ body {
   left: 50%;
   transform: translateX(-50%);
   /* font-size: 50px; */
-  font-size: 40px;
+  font-size: 50px;
   color: white;
   font-family: monospace;
-  padding: 5vh;
+  padding: 30px;
   z-index: 999;
   white-space: nowrap;
 }
 
 @media (max-width: 768px) {
   #turnText {
-    font-size: 30px; /* Adjust font size for smaller screens */
-    padding: 5vh;
+    font-size: 45px; /* Adjust font size for smaller screens */
+    padding: 30px;
   }
 }

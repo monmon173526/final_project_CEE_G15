@@ -1,32 +1,68 @@
-#turn-count4p {
-    position: absolute;
-    top: 20px;
-    left: 1150px;
-    color: white;
-    font-size: 3.8vw;
-    margin-top: 60px;
-    margin-left: 50px;
-    font-family: monospace;
-  }
+#game-container4p {
+  position: relative;
+  width: 800px;
+  height: 700px;
+  top: 0;
+  left: 10vw;
+  margin-top: 80px;
+  margin-left: 0;
+  overflow: hidden;
+  border: 5px solid black;
+}
 
+@media (max-width: 1300px) {
   #game-container4p {
-    /* grid 3p and 4p */
     position: relative;
-    width: 100%;
-    max-width: 100vw;
-    height: auto;
-    max-height: 700px;
-    margin-top: 100px;
-    margin-left: 160px;
+    width: 800px;
+    height: 700px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 80px;
+    margin-left: 0;
     overflow: hidden;
+    border: 5px solid black;
   }
+}
 
+.Player4p {
+  position: absolute; 
+  top: 0; 
+  left: 950px; 
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-end; 
+  padding-right: 20px; 
+  box-sizing: border-box; 
+  margin-top: 100px;
+}
+  
+.Player4p img {
+  width: 110px; 
+  height: auto;
+  margin-top: 10px; 
+  margin-left: 50px;
+}
+
+#turn-count4p {
+  position: absolute;
+  top: 20px;
+  left: 1150px;
+  color: white;
+  font-size: 55px;
+  margin-top: 60px;
+  margin-left: 50px;
+  font-family: monospace;
+}
+
+@media (max-width: 1300px) {
   .Player4p {
     position: absolute; 
-    top: 0; 
-    left: 950px; 
+    top: 700px; 
+    left: 48%; 
+    transform: translateX(-50%);
     display: flex;
-    flex-direction: column; 
+    flex-direction: row; 
     align-items: flex-end; 
     padding-right: 20px; 
     box-sizing: border-box; 
@@ -34,8 +70,24 @@
   }
   
   .Player4p img {
-    width: 7.5vw; 
-    height: auto; 
+    width: 110px; 
+    height: auto;
     margin-top: 10px; 
     margin-left: 50px;
   }
+
+  #turn-count4p {
+    position: absolute;
+    top: 820px;
+    left: 52.5%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    color: white;
+    font-size: 55px;
+    margin-top: 60px;
+    font-family: monospace;
+    letter-spacing: 120px;
+  }
+}
