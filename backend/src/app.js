@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // use routes
-app.use("/items", ItemRoute);
-app.use("/members", MemberRoute);
+//app.use("/items", ItemRoute);
+app.use("/results", );
 
 export default app;

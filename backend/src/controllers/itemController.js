@@ -1,3 +1,4 @@
+/*
 import Item from "../models/itemModel.js";
 
 export const createItem = async (req, res) => {
@@ -33,3 +34,4 @@ export const filterItems = async (req, res) => {
   // Otherwise, you will be punished by -0.5 scores for this part
   res.status(501).send("Unimplemented");
 };
+*/

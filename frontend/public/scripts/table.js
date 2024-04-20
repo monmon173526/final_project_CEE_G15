@@ -1,18 +1,13 @@
 import { createResult, getAllRankedResult, deleteResult } from "./api.js";
 
 function drawTable(results, board) {
-  let table = document.getElementById("player2-table-body");
-  if (board == 2) {
-    table = document.getElementById("player2-table-body");
-  }
-  else if (board == 3) {
-    table = document.getElementById("player3-table-body");
-  }
-  else {
-    table = document.getElementById("player4-table-body");
-  }
+  table2player = document.getElementById("player2-table-body");
+  table3player = document.getElementById("player3-table-body");
+  table4player = document.getElementById("player4-table-body");
 
-  table.innerHTML = "";
+  table2player.innerHTML = "";
+  table3player.innerHTML = "";
+  table4player.innerHTML = "";
   let count = 0;
   for (const result of results) {
     if (result.board != board) continue;

@@ -15,9 +15,19 @@ export const createResult = async (req, res) => {
   }
 };
 export const getResults = async (req, res) => {
-  const results = await Item.find();
-
-  res.status(200).json(results);
+  try {
+    const results = await Result.aggregate([{ $sort: { highestScore: 1 } }/*, { $limit: 20 }*/]);
+    res.status(200).json(results);
+  }
+  catch (err) {
+      console.log(err);
+      // Error handlers
+      if (err.name === "ValidationError") {
+          res.status(400).json({ error: "Bad Request" });
+        } else {
+          res.status(500).json({ error: "Internal server error" });
+        }
+  }
 };
 
 export const deleteResults = async (req, res) => {

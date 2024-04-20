@@ -1,3 +1,4 @@
+/*
 import express from "express";
 
 import * as itemController from "../controllers/itemController.js";
@@ -10,3 +11,4 @@ router.delete("/:id", itemController.deleteItem);
 // TODO3: add a router for the filter function
 
 export default router;
+*/
