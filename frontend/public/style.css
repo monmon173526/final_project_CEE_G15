@@ -136,18 +136,6 @@ body {
   background-color: #ffffff;
 }
 
-
-#turncounter { 
-  position: absolute;
-  top: 20px;
-  left: 1200px;
-  color: white;
-  font-size: 6vw;
-  margin-top: 20px;
-  margin-left: 30px;
-  font-family: monospace;
-} 
-
 #turnCountX {
   bottom: 2%;
   margin-bottom: 3%;  
