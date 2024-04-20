@@ -16,7 +16,7 @@ export const createResult = async (req, res) => {
 };
 export const getResults = async (req, res) => {
   try {
-    const results = await Result.aggregate([{ $sort: { highestScore: 1 } }/*, { $limit: 20 }*/]);
+    const results = await Result.aggregate([{ $sort: { score: 1 } }/*, { $limit: 20 }*/]);
     res.status(200).json(results);
   }
   catch (err) {
