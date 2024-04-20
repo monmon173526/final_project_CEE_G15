@@ -1,3 +1,4 @@
+import { createResult} from "./api.js";
 const config = {
     type: Phaser.AUTO,
     width: 650,
@@ -125,6 +126,13 @@ function checkWinner(scene) {
                 alert(`Thank you, ${winnerName}, for playing!`);
                 // You can hide the input field and button if needed
                 winnerInputContainer.style.display = 'none';
+                const result = {
+                    "id" : 1,
+                    "name" : winnerName,
+                    "score" : gameState.turnCountWinner,
+                    "board" : 2
+                }
+                createResult(result);
             } else {
                 // If the input is empty, display an error message
                 alert('Please enter the winner\'s name.');

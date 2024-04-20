@@ -14,7 +14,6 @@ export const createResult = async (req, res) => {
     }
   }
 };
-
 export const getResults = async (req, res) => {
   const results = await Item.find();
 
