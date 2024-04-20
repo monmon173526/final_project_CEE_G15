@@ -1,29 +1,35 @@
-import { createItem, deleteItem, getItems, filterItems } from "./api.js";
+import { createResult, getAllRankedResult, deleteResult } from "./api.js";
 
-function drawTable(items) {
-  const table = document.getElementById("main-table-body");
+function drawTable(results, board) {
+  let table = document.getElementById("player2-table-body");
+  if (board == 2) {
+    table = document.getElementById("player2-table-body");
+  }
+  else if (board == 3) {
+    table = document.getElementById("player3-table-body");
+  }
+  else {
+    table = document.getElementById("player4-table-body");
+  }
 
   table.innerHTML = "";
-  for (const item of items) {
+  let count = 0;
+  for (const result of results) {
+    if (result.board != board) continue;
     const row = table.insertRow();
-    row.insertCell().innerText = item.item;
-    row.insertCell().innerText = item.name;
-    row.insertCell().innerText = item.price;
-
-    const button = document.createElement("button");
-    button.addEventListener("click", () => handleDeleteItem(item._id));
-    button.innerText = "ลบ";
-
-    row.insertCell().appendChild(button);
+    row.insertCell().innerText = result.name;
+    row.insertCell().innerText = result.score;
+    if (count == 10) break;
+    count++;
   }
 }
 
-export async function fetchAndDrawTable() {
-  const items = await getItems();
-
-  drawTable(items);
+export async function fetchAndDrawTable(board) {
+  const results = await getAllRankedResult();
+  
+  drawTable(results, board);
 }
-
+/*
 export async function handleDeleteItem(id) {
   await deleteItem(id);
   await fetchAndDrawTable();
@@ -70,3 +76,4 @@ export async function handleFilterItem() {
   const items = await filterItems(name, lowerPrice, upperPrice);
   await drawTable(items);
 }
+*/

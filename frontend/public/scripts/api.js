@@ -6,37 +6,31 @@ export async function getItems() {
   return items;
 }
 
-export async function createItem(item) {
-  await fetch(`${BACKEND_URL}/items`, {
+export async function createResult(result) {
+  await fetch(`${BACKEND_URL}/Results`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(item),
+    body: JSON.stringify(result),
   });
 }
 
-export async function deleteItem(id, item) {
-  await fetch(`${BACKEND_URL}/items/${id}`, {
-    method: "DELETE",
-  });
+export async function getAllRankedResult(size) {
+  try {
+    const response = await fetch(`${BACKEND_URL}/Results`);
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const players = await response.json();
+    return players;  
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    }
 }
-
-export async function filterItems(filterName, lowerPrice, upperPrice) {
-  // TODO3: implement this function
-  // You may need to understand handleFilterItem() function in ./table.js before implementing this function.
-  return /* return the filted items */;
+export async function filterResult() {
+  // may not need, will implement later
 }
-
-export async function getMembers() {
-  // TODO4: implement this function
-  return /* return all members */;
-}
-
-export async function createMember(member) {
-  // TODO4: implement this function
-}
-
-export async function deleteMember(id, item) {
-  // TODO4: implement this function
+export async function deleteResult(id, item) {
+  // may not need, will implement later
 }

@@ -1,3 +1,5 @@
+import { fetchAndDrawTable, handleCreateItem, handleFilterItem } from "./table.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchAndDrawTable();
 
