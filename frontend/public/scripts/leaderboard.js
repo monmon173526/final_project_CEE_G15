@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const result of results) {
       if (result.board != 2) continue;
       const row = table2player.insertRow();
+      row.insertCell().innerText = count2.toString();
       row.insertCell().innerText = result.name;
       row.insertCell().innerText = result.score;
       if (count2 == 10) break;
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const result of results) {
       if (result.board != 3) continue;
       const row = table3player.insertRow();
+      row.insertCell().innerText = count3.toString();
       row.insertCell().innerText = result.name;
       row.insertCell().innerText = result.score;
       if (count3 == 10) break;
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const result of results) {
       if (result.board != 4) continue;
       const row = table4player.insertRow();
+      row.insertCell().innerText = count4;
       row.insertCell().innerText = result.name;
       row.insertCell().innerText = result.score;
       if (count4 == 10) break;
