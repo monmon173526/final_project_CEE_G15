@@ -123,8 +123,14 @@ function checkWinner(scene) {
             const winnerName = winnerNameInput.value.trim(); // Get the entered winner's name
             if (winnerName !== '') {
                 // Process the winner's name (you can send it to a server, store in localStorage, etc.)
+                
                 alert(`Thank you, ${winnerName}, for playing!`);
+
+                //go to leaderboard page
+                window.location.href = "leaderboard.html";
                 // You can hide the input field and button if needed
+
+                
                 winnerInputContainer.style.display = 'none';
                 const result = {
                     "id" : 1,
