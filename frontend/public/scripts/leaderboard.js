@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const result of results) {
       if (result.board != 4) continue;
       const row = table4player.insertRow();
-      row.insertCell().innerText = count4;
+      row.insertCell().innerText = count4.toString();
       row.insertCell().innerText = result.name;
       row.insertCell().innerText = result.score;
       if (count4 == 10) break;
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
   export async function fetchAndDrawTable() {
     const results = await getAllRankedResult();
-    
     drawTable(results);
   }
 // Function to fetch the data from a server or a local storage
