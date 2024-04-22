@@ -30,8 +30,8 @@ function preload() {
     this.load.image('board', 'assets/3x3.png');
     this.load.image('x', 'assets/X.png');
     this.load.image('o', 'assets/O.png');
-    this.load.image('greyX', 'assets/X2.png');
-    this.load.image('greyO', 'assets/O2.png');
+    this.load.image('greyX', 'assets/X3.png');
+    this.load.image('greyO', 'assets/O3.png');
 }
 
 function create() {
@@ -128,6 +128,7 @@ function checkWinner(scene) {
 
                 //go to leaderboard page
                 window.location.href = "leaderboard.html";
+
                 // You can hide the input field and button if needed
 
                 

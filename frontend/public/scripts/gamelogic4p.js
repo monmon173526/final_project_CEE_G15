@@ -34,10 +34,10 @@ function preload() {
     this.load.image('o', 'assets/O.png');
     this.load.image('rec', 'assets/Rec.png');
     this.load.image('tri', 'assets/Tri.png');
-    this.load.image('greyX', 'assets/X2.png');
-    this.load.image('greyO', 'assets/O2.png');
-    this.load.image('greyRec', 'assets/Rec2.png');
-    this.load.image('greyTri', 'assets/Tri2.png');
+    this.load.image('greyX', 'assets/X3.png');
+    this.load.image('greyO', 'assets/O3.png');
+    this.load.image('greyRec', 'assets/Rec3.png');
+    this.load.image('greyTri', 'assets/Tri3.png');
 }
 
 function create() {
@@ -162,7 +162,7 @@ function checkWinner(scene) {
 
                 //go to leaderboard page
                 window.location.href = "leaderboard.html";
-                
+
                 // You can hide the input field and button if needed
                 winnerInputContainer.style.display = 'none';
                 const result = {

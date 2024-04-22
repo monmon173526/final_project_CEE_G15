@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style3p.css" />
   </head>
   <body>
+    <audio id="myAudio" controls>
+      <source src="assets/BGM.mp3" type="audio/mpeg">
+    </audio>
     <div id="turnText"></div>
 
     <div>
@@ -32,9 +35,12 @@
         </div>
       </div>
     </div>
-  
-
-
     <script type="module" src="scripts/gamelogic3p.js"></script>
+    <script>
+      const audio = document.getElementById("myAudio");
+      audio.loop = true;
+      audio.volume = 0.05;
+      audio.play();
+    </script>
   </body>
 </html>

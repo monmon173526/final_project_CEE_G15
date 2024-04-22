@@ -61,7 +61,8 @@ body {
 }
 /* leaderboard */
 .leaderboard {
-  padding: 10px;
+  /* max-width: 80vb; */
+  /* padding: 10px; */
   overflow-y: auto;
   max-height: 40vW;
 }
@@ -86,10 +87,11 @@ body {
 }
 .leaderboard table {
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
 }
 .leaderboard th, td {
-  font-size:1vw;
+  min-height: 16px;
+  font-size:2vw;
   border: 1px solid white;
   padding: 8px;
   text-align: left;

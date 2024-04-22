@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style2p.css" />
 </head>
 <body>
-
+    <audio id="myAudio" controls>
+        <source src="assets/BGM.mp3" type="audio/mpeg">
+      </audio>
     <div id="turnText"></div>
     <div class="scnene">
         <div id="game-container2p"></div>
@@ -35,5 +37,11 @@
     </div>
 
     <script type="module" src="scripts/gamelogic2p.js"></script>
+    <script>
+        const audio = document.getElementById("myAudio");
+        audio.loop = true;
+        audio.volume = 0.05;
+        audio.play();
+    </script>
 </body>
 </html>
