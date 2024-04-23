@@ -105,7 +105,6 @@ function checkWinner(scene) {
                 winningMessage = '\u25CB wins!';
                 gameState.turnCountWinner = gameState.turnCountO;
             }
-            console.log('winner'+ gameState.turnCountWinner);
 
             const winMessageDiv = document.getElementById('win-message2p');
             winMessageDiv.textContent = winningMessage;

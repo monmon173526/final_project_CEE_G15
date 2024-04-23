@@ -52,12 +52,6 @@ function create() {
         gameState.turnTextElement.textContent = "Player \u25A1 turn";
     }
 
-    // gameState.turnText = this.add.text(400, 50, `Turn: ${gameState.currentPlayer.toUpperCase()}`, { 
-    //     fill: '#ffffff',
-    //     fontSize: '24px',
-    //     fontFamily: 'Arial'
-    // }).setOrigin(0.5);
-
     const hitArea = new Phaser.Geom.Rectangle(50, 50, 600, 600); 
 
     this.input.on('pointerdown', function (pointer) {

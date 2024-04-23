@@ -141,5 +141,81 @@
     padding-bottom: 50px;
   }
 }
+@media (max-width: 560px) {
+  .Player4p {
+    position: absolute; 
+    top: 700px; 
+    right: 40%; 
+    transform: translateX(+65%);
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-end; 
+    padding-right: 20px; 
+    box-sizing: border-box; 
+    margin-top: 100px;
+  }
+  
+  .Player4p img {
+    width: 90px; 
+    height: auto;
+    margin-top: 10px; 
+    margin-left: 70px;
+  }
 
+  #turn-count4p {
+    position: absolute;
+    top: 820px;
+    right: 40%;
+    transform: translateX(+85%);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    color: white;
+    font-size: 55px;
+    margin-top: 60px;
+    font-family: monospace;
+    letter-spacing: 128px;
+  }
 
+  #win-message4p {
+    position: absolute;
+    top: 450px;
+    right: 40%; 
+    transform: translateX(+90%);
+    color: white;
+    padding: 10px;
+    font-size: 50px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 600px;
+    margin-left: 0;
+    font-family: monospace;
+  }
+
+  #winner-input-container4p {
+    position: absolute;
+    top: 500px;
+    right: 40%;
+    transform: translateX(+90%);
+    margin-top: 650px;
+    margin-left: 0;
+    padding-bottom: 10px;
+  }
+
+  #game-container4p {
+    position: relative;
+    width: 800px;
+    height: 700px;
+    top: 0;
+    left: 65%;
+    transform: translateX(-40%);
+    margin-top: 80px;
+    margin-left: 0;
+    overflow: hidden;
+  }
+
+  #turntext {
+    display: flex;
+    justify-content: center;
+  }
+}
