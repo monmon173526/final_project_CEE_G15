@@ -146,7 +146,7 @@
     position: absolute; 
     top: 700px; 
     right: 40%; 
-    transform: translateX(+65%);
+    transform: translateX(+70%);
     display: flex;
     flex-direction: row; 
     align-items: flex-end; 
@@ -159,14 +159,14 @@
     width: 90px; 
     height: auto;
     margin-top: 10px; 
-    margin-left: 70px;
+    margin-left: 40px;
   }
 
   #turn-count4p {
     position: absolute;
     top: 820px;
     right: 40%;
-    transform: translateX(+85%);
+    transform: translateX(+82%);
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -174,14 +174,14 @@
     font-size: 55px;
     margin-top: 60px;
     font-family: monospace;
-    letter-spacing: 128px;
+    letter-spacing: 97px;
   }
 
   #win-message4p {
     position: absolute;
     top: 450px;
     right: 40%; 
-    transform: translateX(+90%);
+    transform: translateX(+100%);
     color: white;
     padding: 10px;
     font-size: 50px;
@@ -196,7 +196,7 @@
     position: absolute;
     top: 500px;
     right: 40%;
-    transform: translateX(+90%);
+    transform: translateX(+97%);
     margin-top: 650px;
     margin-left: 0;
     padding-bottom: 10px;

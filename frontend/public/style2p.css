@@ -160,7 +160,7 @@ margin-left: 30px;
   .Player2p {
     position: absolute;
       top: 650px; /* Adjust the top position based on your design */
-      right: 50%; /* Half of the total width of two players (2 * 160px + 2 * 30px) */
+      right: 60%; /* Half of the total width of two players (2 * 160px + 2 * 30px) */
       transform: translateX(+60%);
       display: flex;
       flex-direction: row;
@@ -176,7 +176,7 @@ margin-left: 30px;
   #turncounter {
     position: absolute;
     top: 800px; /* Adjust the top position to move it below the game container */
-    right: 50%; /* Center it horizontally */
+    right: 60%; /* Center it horizontally */
     color: white;
     font-size: 60px;
     font-family: monospace;
@@ -195,7 +195,7 @@ margin-left: 30px;
   position: absolute;
   top: 550px;
   right: 50%; 
-  transform: translateX(+75%);
+  transform: translateX(+53%);
   color: white;
   padding: 10px;
   font-size: 40px;
@@ -210,7 +210,7 @@ margin-left: 30px;
   position: absolute;
   top: 550px;
   right: 40%;
-  transform: translateX(+52%);
+  transform: translateX(+33%);
   margin-top: 500px;
   margin-left: 0;
   padding-bottom: 50px;
